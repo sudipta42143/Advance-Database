@@ -1,0 +1,74 @@
+1.
+
+DECLARE
+	Salary number (20);
+	Name varchar(20) := 'JONES';
+X number(20) := 1;
+BEGIN
+	SELECT sal into Salary FROM emp WHERE ename = name;
+	LOOP
+	  	X := X+1;
+Dbms_output.put_line(Name);
+		IF x>3 AND x<5  THEN
+			Exit;
+		END IF;
+	END LOOP;
+END;
+/
+
+
+
+
+2.
+
+DECLARE
+	Salary number(5) ;
+	Name varchar(20) := 'JONES';
+	num number(3) := 1;
+BEGIN
+	SELECT sal into Salary FROM emp WHERE ename = name;
+	WHILE  num<4  LOOP
+	  	Dbms_output.put_line(Name);
+		 num := num+1;
+	END LOOP;
+END;
+/
+
+4.
+
+
+CREATE OR REPLACE FUNCTION get_total_departments
+RETURN NUMBER
+IS
+  total_departments NUMBER;
+BEGIN
+  SELECT COUNT(*)
+  INTO total_departments
+  FROM dept;
+  
+  RETURN total_departments;
+END;
+/
+SELECT get_total_departments() AS total_departments FROM dual;
+
+
+5. 
+
+
+CREATE OR REPLACE PROCEDURE UPDATE_ALLEN_SALARY IS
+BEGIN
+  UPDATE emp
+  SET sal = 100
+  WHERE ename = 'ALLEN';
+  
+  COMMIT;
+  
+  DBMS_OUTPUT.PUT_LINE('Allen''s salary has been updated to 100.');
+EXCEPTION
+  WHEN OTHERS THEN
+    ROLLBACK;
+    DBMS_OUTPUT.PUT_LINE('An error occurred: ' || SQLCODE || ' - ' || SQLERRM);
+END UPDATE_ALLEN_SALARY;
+
+
+EXECUTE UPDATE_ALLEN_SALARY;

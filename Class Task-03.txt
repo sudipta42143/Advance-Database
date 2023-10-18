@@ -1,0 +1,33 @@
+
+Name: Sudipta Saha
+ID: 20-42143-1
+Section: B
+Class Test: 03
+
+1)create sequence m_id increment by 1
+start with 1
+MAXVALUE 67
+NOCACHE
+NOCYCLE;
+
+???2)Rename <member> to <members>;
+
+???3)select m_ name from member where salary = 800;
+
+???4)select m_ name from member, bill from member order by bill asc;
+
+???5)select m_ name from Member where m_name Like '3%;
+
+???6)select t _name, specialty, m_ name from member where t_id = 3;
+
+???7)select m_name,m _address from member where t_id = 3;
+
+???8)create view trainer vw
+as select t_id, t _name, speciality
+from Trainer;
+
+???9)select t_name, speciality from trainer_vw;
+
+????10)create view Info
+as select t_name as Trainer, speciality as Speciality, m_ name as Member
+from Trainer;

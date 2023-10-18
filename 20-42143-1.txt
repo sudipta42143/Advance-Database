@@ -1,0 +1,25 @@
+1. Select S_name,CGPA, CGPA-0.5 from Student_info;
+
+
+2. Select concate(country, country code) as country_info from Address;
+
+
+3. Select S_Name as student_name,s_blood status as student blood status from student_info;
+
+
+4. Select * from Student_info where s_name like 'o%';
+
+
+5. Select CGPA from Student_info where cgpa is null;
+
+
+6. Select city,country,country_code from Address Order by country_code DESC;
+
+
+7. Select S_name, cocate(s_name, S_blood status) from Student_info Where (S_blood status 1.5)='pureblood';
+
+
+8. Select s_name, NVL(s_CGPA, 0) as cgpa NVL(s_blood status, 'Unknown') as 'Student Blood Status' From Student_info;
+
+
+9. Select s_name, Max(CGPA) from Student_info;

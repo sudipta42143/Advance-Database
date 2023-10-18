@@ -1,0 +1,138 @@
+PART 1:
+1.
+Declare
+   a number:=:a;
+   b number:=:b;
+   m number;
+BEGIN
+   m:=(a*b);
+   dbms_output.put_line(m);
+END;
+
+2.
+Declare
+   a number:= :a;
+   b number:=:b;
+BEGIN
+   case 
+      when a=b then dbms_output.put_line('Equal');
+      else dbms_output.put_line('Not equal');
+   end case;
+END;
+
+3.
+Declare
+   a varchar2(255):='abc';
+   b varchar2(255):='abc';
+BEGIN
+   if (a=b) then dbms_output.put_line('equal');
+   else dbms_output.put_line('invalid');
+   end if;
+END;
+
+4.
+Declare
+   a number:=:a;
+   b number:=:b;
+   m number;
+BEGIN
+   m:=(a*b);
+   if (m<100) then dbms_output.put_line('Hi');
+   elsif (m>100) then dbms_output.put_line('Bye');
+   else dbms_output.put_line('ADBMS');
+   end if;
+END;
+
+5.
+Declare
+   a number:=:a;
+   b number:=:b;
+BEGIN
+   case
+   when (a=b) then dbms_output.put_line('equal');
+   else dbms_output.put_line('not equal');
+   end case;
+END;
+
+PART2:
+6.
+Declare
+   var_salary number(6) ;
+   var_empName varchar(6) := 'ALLEN' ;
+BEGIN
+   Select salary into var_salary from employee where emp_name = var_empName;
+	
+   
+   if(var_salary > 2000) then 
+	dbms_output.put_line('salary greater than 2000');
+   else 
+	dbms_output.put_line('salary less than 2000');
+   end case;
+END;
+
+7. 
+Declare
+   var_empNo number(6) :=: EmployeeNo;
+   var_salary number(6) ;
+BEGIN
+   Select salary into var_salary from employee where emp_no = var_empNo;
+   dbms_output.put_line(var_salary);
+   
+END;
+
+8. 
+Declare
+   var_empNoOfBlake number(6) :=: EmployeeNoOfBlake;
+   var_empNoOfClake number(6) :=: EmployeeNoOfClark;
+   var_empNoOfTurner number(6) :=: EmployeeNoOfTurner;
+   
+   var_salaryOfBlake number(6) ;
+   var_salaryOfClark number(6) ;
+   var_salaryOfTurner number(6) ;
+BEGIN
+   Select salary into var_salaryOfBlake from employee where emp_no = var_empNoOfBlake ;
+   Select salary into var_salaryOfClark from employee where emp_no = var_empNoOfClake ;
+   Select salary into var_salaryOfTurner from employee where emp_no = var_empNoOfTurner ;
+   
+   dbms_output.put_line(var_salaryOfBlake);
+   dbms_output.put_line(var_salaryOfClark);
+   dbms_output.put_line(var_salaryOfTurner);
+   
+END;
+
+9. 
+Declare
+   var_empNoOfBlake number(6) :=: EmployeeNoOfBlake;
+   var_empNoOfClake number(6) :=: EmployeeNoOfClark;
+   var_empNoOfTurner number(6) :=: EmployeeNoOfTurner;
+   
+   var_salaryOfBlake number(6) ;
+   var_salaryOfClark number(6) ;
+   var_salaryOfTurner number(6) ;
+   var_totalSalary number(6) ;
+BEGIN
+   Select salary into var_salaryOfBlake from employee where emp_no = var_empNoOfBlake ;
+   Select salary into var_salaryOfClark from employee where emp_no = var_empNoOfClake ;
+   Select salary into var_salaryOfTurner from employee where emp_no = var_empNoOfTurner ;
+
+  var_totalSalary :=   var_salaryOfBlake  +   var_salaryOfClark + var_salaryOfTurner ;
+
+   dbms_output.put_line(var_salaryOfBlake);
+   dbms_output.put_line(var_salaryOfClark);
+   dbms_output.put_line(var_salaryOfTurner);
+   dbms_output.put_line(var_totalSalary);
+   
+END;
+10.
+var_comm number(6);
+var_empName varchar(6) = 'SMITH';
+BEGIN
+ Select comm into var_comm from employee where emp_name = var_empName;
+if (var_com = NULL) THEN
+dbms_output.put_line('NOT APPLICABLE FOR COMMISSION');
+else dbms_output.put_line( 'APPLICABLE FOR COMMISSION');
+END;
+
+11.
+Output:
+10

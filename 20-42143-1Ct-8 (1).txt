@@ -1,0 +1,45 @@
+1.
+SELECT emp.ename from emp,dept where emp.deptno=dept.deptno and dept.loc='BOSTON';
+2.
+SELECT e.ename
+ from emp e,emp m
+ where m.empno=e.mgr and e.hiredate>m.hiredate;
+3.
+SELECT worker.ename,manager.ename AS MANAGER
+FROM emp worker, emp manager
+WHERE worker.mgr = manager.empno(+);
+4.
+SELECT e.ename , s.grade 
+FROM emp e,salgrade s 
+WHERE e.sal 
+BETWEEN s.losal AND s.hisal;
+5.
+SELECT emp.ename,emp.deptno,dept.dname,dept.loc from emp,dept where emp.deptno=dept.deptno;
+6.
+Select branch_name,b.loan_number,customer_name from loan
+Left outer join borrower b
+On (loan.loan_number=b.loan_number);
+
+Select branch_name,b.loan_number,customer_name  from borrower b right outer join loan l
+On (l.loan_number=b.loan_number);
+
+Select branch_name,b.loan_number,customer_name from borrower b full outer join loan l
+On (l.loan_number=b.loan_number);
+
+7.
+Select ename,grade
+From emp
+Cross join salgrade;
+8.
+Select ename,dname from emp
+Natural join dept
+where deptno in ('10');
+9.
+Select ename,dname,loc
+From emp join dept
+Using (DEPTNO)
+where DEPTNO<>'20';
+10.
+Select ename,dname,sal from emp e
+join dept d
+On (e.deptno=d.deptno);

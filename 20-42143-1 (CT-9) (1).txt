@@ -1,0 +1,26 @@
+SUBQUERY
+
+
+1. select ename from emp
+where hiredate < (select hiredate from emp
+where ename = 'ALLEN');
+
+2. select ename from emp
+where sal < any (select sal from emp
+where job = 'SALESMAN');
+
+3. select ename from emp
+where sal < any (select min(sal) from emp
+where job = 'SALESMAN');
+
+4. select ename, deptno from emp
+where (sal, deptno) in (select min(sal), deptno from emp
+group by deptno);
+
+5. select ename, sal from emp
+where sal < all (select min(sal) from emp
+where ename = 'SMITH');
+
+6.
+(1): select ename,deptno,sal,MGR,job from emp where (deptno,MGR) IN (select deptno,MGR from emp where job='CLERK') AND job<>'CLERK';
+(2): select ename,deptno,sal,MGR,job from emp where deptno IN (select deptno from emp where job='CLERK') AND MGR IN (select MGR from emp where job='CLERK') AND job<>'CLERK'

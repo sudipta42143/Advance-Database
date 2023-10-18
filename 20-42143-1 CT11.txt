@@ -1,0 +1,138 @@
+Part 1:
+1.
+DECLARE
+A varchar2(100):='Hello ADBMS Section B';
+Begin
+dbms_output.put_line(A);
+End;
+2.
+DECLARE
+var_num1 number;
+var_num2 number;
+BEGIN
+var_num1 := 10;
+var_num2 := 20;
+  DECLARE
+  add number;
+  BEGIN 
+  add := var_num1 + var_num2;
+  dbms_output.put_line(add);
+  END;
+  
+END;
+3.
+DECLARE
+var_num1 number;
+var_num2 number;
+var_num3 number;
+mul number;
+BEGIN
+var_num1 := 10;
+var_num2 := 20;
+var_num3 := 5;
+mul := (var_num1*var_num2*var_num3);
+  dbms_output.put_line(mul);
+  END;
+4.
+DECLARE
+A varchar2(100):='HELLO WORLD';
+Begin
+dbms_output.put_line(A);
+end;
+5.
+DECLARE
+var_num1 number;
+var_num2 number;
+sub number;
+BEGIN
+var_num1 := 10;
+var_num2 := 20;
+sub := (var_num2- var_num1);
+  dbms_output.put_line(sub);
+  END;
+6.
+DECLARE
+var1 number;
+var2 number ;
+var3 number;
+var4 number;
+add number;
+average_of number;
+BEGIN
+var1 := 12;
+var2 := 14;
+var3 := 16;
+var4 := 18;
+add := (var1+var2+var3+var4);
+average_of := (add/4);
+
+ dbms_output.put_line(average_of);
+  END;
+7.
+DECLARE
+value_of_pi CONSTANT float (10) := 3.14;
+BEGIN
+dbms_output.put_line ('The value of pi is :' || value_of_pi );
+END; 
+
+PART 2:
+1.Write a query that can display the name of the department which has department number 10.
+
+Declare
+   var_deptName varchar(6) ;
+   var_deptNum number(4) := 10 ;
+BEGIN
+   Select deptName into var_dname from employee where deptno= var_deptNum; 
+	dbms_output.put_line('salary greater than 2000');
+END;
+
+2.Write a query that can display the name of the department in lower case which has department number 20.
+
+DECLARE
+   dept_name VARCHAR2(30);
+BEGIN
+   SELECT LOWER(dname) INTO dept_name
+   FROM dept
+   WHERE deptno = 20;
+   dbms_output.put_line('Department Name: ' || dept_name);
+END;
+
+3.Write a query that displays the incremented salary (sal+250) of employee Smith.
+DECLARE
+   var_empno number(3);
+   var_sal number(4);
+BEGIN
+   SELECT empno, sal INTO var_empno, var_sal FROM emp WHERE ename = 'SMITH';
+   
+   UPDATE emp sal= var_sal + 250 WHERE empno = var_empno;
+   
+   dbms_output.put_line('Employee Smith''s salary incremented by 250 to ' || (var_sal + 250));
+END;
+
+4.Write a query that displays the hiredate of employee KING.
+DECLARE
+   v_hiredate number(4);
+BEGIN
+   SELECT hiredate INTO v_hiredate
+   FROM emp
+   WHERE ename = 'KING';
+   
+   dbms_output.put_line('Employee KING''s hiredate is ' || TO_CHAR(v_hiredate, 'DD-MON-YYYY'));
+END;
+5.Write a query that displays the sum of salary of all the employees.
+DECLARE
+   v_total_salary NUMBER;
+BEGIN
+   SELECT SUM(sal) INTO v_total_salary
+   FROM emp;
+   
+   dbms_output.put_line('The total salary of all employees is ' || v_total_salary);
+END;
+
+6.
+DECLARE
+Emp_sal number;
+Emp_comm number;
+BEGIN
+Select sal,comm into emp_sal, emp_comm from emp where emp_name = ‘ALLEN’;
+END;
